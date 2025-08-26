@@ -99,7 +99,7 @@ def check_availability_and_price():
         conn.close()
 
         # 4. Formatear los resultados para que el agente los entienda
-        results =
+        results =[]
         for prop in available_properties:
             prop_id, name, description, price_per_night, monthly_rate = prop
             total_price = 0
