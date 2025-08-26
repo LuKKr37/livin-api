@@ -30,7 +30,7 @@ def get_db_connection():
 
 # Definimos una "ruta" o "endpoint". Cuando visitemos la URL de nuestro servidor
 # seguida de "/check_availability", se ejecutará esta función.
-@app.route('/check_availability', methods='GET')
+@app.route('/check_availability', methods=['GET'])
 def check_availability_and_price():
     # 1. Obtener los datos que nos envía el agente (o nosotros para probar)
     start_date_str = request.args.get('start_date') # ej: '2025-10-20'
@@ -99,7 +99,7 @@ def check_availability_and_price():
         conn.close()
 
         # 4. Formatear los resultados para que el agente los entienda
-        results =[]
+        results = []
         for prop in available_properties:
             prop_id, name, description, price_per_night, monthly_rate = prop
             total_price = 0
