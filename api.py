@@ -132,9 +132,14 @@ def check_availability_and_price():
                 # Redondear el precio final a 0 decimales para pesos colombianos
                 final_price = total_price.quantize(Decimal('1'), rounding=ROUND_HALF_UP)
                 
+     # ### INICIO DEL CAMBIO ###
+                # Simplificamos el 'name' para que sea más fácil de procesar por la IA
+                simple_name = name.split(',') # Toma solo la primera parte, ej: "Apartamento 203"
+                # ### FIN DEL CAMBIO ###
+
                 results.append({
                     "property_id": prop_id,
-                    "name": name,
+                    "name": simple_name, # Usamos el nombre simplificado
                     "description": description,
                     "monthly_rate": float(monthly_rate) if monthly_rate else None, # Añadimos la tarifa mensual
                     "total_price": float(final_price) # Devolvemos el precio total corregido
