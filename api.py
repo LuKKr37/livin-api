@@ -132,10 +132,10 @@ def check_availability_and_price():
                 # Redondear el precio final a 0 decimales para pesos colombianos
                 final_price = total_price.quantize(Decimal('1'), rounding=ROUND_HALF_UP)
                 
-     # ### INICIO DEL CAMBIO ###
-                # Simplificamos el 'name' para que sea más fácil de procesar por la IA
-                simple_name = name.split(',') # Toma solo la primera parte, ej: "Apartamento 203"
-                # ### FIN DEL CAMBIO ###
+     # ### INICIO DE LA CORRECCIÓN ###
+                # Extraemos solo la primera parte del nombre antes de la coma.
+                simple_name = name.split(',')
+                # ### FIN DE LA CORRECCIÓN ###
 
                 results.append({
                     "property_id": prop_id,
